@@ -85,7 +85,7 @@ const Layout = () => {
 				</nav>
 			</section>
 
-			<main className="w-full p-8">
+			<main className="flex-1 min-w-0 p-4 pb-20 md:p-8 overflow-y-auto h-screen">
 				<Outlet/>
 			</main>
 		</div>
