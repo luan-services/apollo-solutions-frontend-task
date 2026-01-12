@@ -22,17 +22,13 @@ export interface DashboardData {
     summary: {
         total_revenue: number;
         total_sales: number;
+        total_products: number;
+        total_categories: number;
     };
-    monthly_data: {
-        date: string;
-        total: number;
-    }[];
-}
-
-export interface ProductData {
-    total_products: number;
-}
-
-export interface CategoryData {
-    total_categories: number;
+    charts: {
+        monthly_revenue: {
+            date: string;
+            total: number;
+        }[];
+    };
 }
