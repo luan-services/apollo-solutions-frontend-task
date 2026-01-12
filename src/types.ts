@@ -4,11 +4,11 @@ export interface Category {
 }
 
 export interface Product {
-    id: number;
     name: string;
     description: string;
     price: number;
     brand: string;
+    category_id: number; // foreign key
 }
 
 export interface Sale {
