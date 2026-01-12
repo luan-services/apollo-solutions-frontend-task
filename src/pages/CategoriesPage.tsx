@@ -43,8 +43,6 @@ const CategoriesPage = () => {
 		fetchCategories();
 	}, []);
 
-
-
 	/* function to create or update a category */
 	const handleSave = async () => {
 		try {
@@ -172,7 +170,7 @@ const CategoriesPage = () => {
 									<TableHead>
 										Nome
 									</TableHead>
-									<TableHead className=" flex justify-center">
+									<TableHead className="items-center flex justify-center">
 										Ações
 									</TableHead>
 								</TableRow>
