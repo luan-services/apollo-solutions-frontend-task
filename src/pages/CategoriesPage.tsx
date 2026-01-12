@@ -177,24 +177,32 @@ const CategoriesPage = () => {
 							</TableHeader>
 
 							<TableBody>
-								{categories.map((category) => (
-									<TableRow key={category.id}>
-										<TableCell>
-											{category.id}
+								{categories.length === 0 ? (
+                                    <TableRow>
+                                        <TableCell colSpan={6} className="text-center h-24">
+                                            Nenhum produto encontrado.
+                                        </TableCell>
+                                    </TableRow>
+                                ) : (
+									categories.map((category) => (
+										<TableRow key={category.id}>
+											<TableCell>
+												{category.id}
+												</TableCell>
+											<TableCell className="font-medium">
+												{category.name}
 											</TableCell>
-										<TableCell className="font-medium">
-											{category.name}
-										</TableCell>
-										<TableCell className="gap-2 flex justify-center">
-											<Button variant="ghost" size="icon" className="hover:bg-neutral-200 cursor-pointer" onClick={() => openModal(category)}>
-												<Pencil size={16} />
-											</Button>
-											<Button variant="ghost" size="icon" className="hover:bg-red-100 text-red-500 cursor-pointer" onClick={() => category.id && handleDelete(category.id)}>
-												<Trash size={16} />
-											</Button>
-										</TableCell>
-									</TableRow>
-								))}
+											<TableCell className="gap-2 flex justify-center">
+												<Button variant="ghost" size="icon" className="hover:bg-neutral-200 cursor-pointer" onClick={() => openModal(category)}>
+													<Pencil size={16} />
+												</Button>
+												<Button variant="ghost" size="icon" className="hover:bg-red-100 text-red-500 cursor-pointer" onClick={() => category.id && handleDelete(category.id)}>
+													<Trash size={16} />
+												</Button>
+											</TableCell>
+										</TableRow>
+									))
+								)}
 							</TableBody>
 						</Table>
 					)}
