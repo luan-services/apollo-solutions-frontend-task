@@ -80,14 +80,15 @@ const CategoriesPage = () => {
 				method: "DELETE",
 			});
 
-			if (!response.ok) {
-				throw new Error("Erro ao deletar");
-			}
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({ detail: "Erro desconhecido" }));
+                throw new Error(errorData.detail || "Erro ao deletar");
+            }
 		
 			fetchCategories();
 			toast.success("Categoria removida.");
-		} catch (error) {
-			toast.error("Erro ao deletar categoria.");
+		} catch (error: any) {
+			toast.error("Erro: " + error.message);
 		}
 	};
 
@@ -138,7 +139,7 @@ const CategoriesPage = () => {
 				
 				<div className="flex justify-center gap-2 items-center">
 					<label htmlFor="csv-upload">
-						<div className="flex items-center gap-2 px-4 py-2 text-sm font-bold bg-neutral-800 text-white rounded-md cursor-pointer hover:bg-green-700 transition">
+						<div className="flex items-center gap-2 px-4 py-2 text-sm font-bold bg-neutral-800 text-white rounded-md cursor-pointer transition">
 							<Upload size={16} /> Importar CSV
 						</div>
 						<input
@@ -150,7 +151,7 @@ const CategoriesPage = () => {
 						/>
 					</label>
 					
-					<Button className="text-sm font-bold" onClick={() => openModal()}>
+					<Button className="flex items-center text-sm font-bold cursor-pointer transition" onClick={() => openModal()}>
 						<Plus size={16}/> 
 						Nova Categoria
 					</Button>
@@ -187,10 +188,10 @@ const CategoriesPage = () => {
 											{category.name}
 										</TableCell>
 										<TableCell className="gap-2 flex justify-center">
-											<Button variant="ghost" size="icon" className="hover:bg-neutral-200" onClick={() => openModal(category)}>
+											<Button variant="ghost" size="icon" className="hover:bg-neutral-200 cursor-pointer" onClick={() => openModal(category)}>
 												<Pencil size={16} />
 											</Button>
-											<Button variant="ghost" size="icon" className="hover:bg-red-100 text-red-500" onClick={() => category.id && handleDelete(category.id)}>
+											<Button variant="ghost" size="icon" className="hover:bg-red-100 text-red-500 cursor-pointer" onClick={() => category.id && handleDelete(category.id)}>
 												<Trash size={16} />
 											</Button>
 										</TableCell>
