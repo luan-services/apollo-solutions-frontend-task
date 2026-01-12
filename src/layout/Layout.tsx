@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Outlet } from 'react-router'
 import { Link, useLocation } from "react-router";
 import React from 'react';
+import { Toaster } from '@/components/ui/sonner';
 
 import { LayoutDashboard, ShoppingBag, Tags, DollarSign, Pin, PinOff } from "lucide-react";
 
@@ -88,6 +89,8 @@ const Layout = () => {
 			<main className="flex-1 min-w-0 p-4 pb-20 md:p-8 overflow-y-auto h-screen">
 				<Outlet/>
 			</main>
+			
+			<Toaster/>
 		</div>
 	)
 }
