@@ -22,7 +22,7 @@ const Layout = () => {
 		<div className="flex min-h-screen w-full bg-neutral-50">
 			<section className={`${isExpanded ? 'w-64' : ''} w-17 hover:w-64 hidden md:flex flex-col justify-start group px-2 py-6 bg-neutral-50 text-neutral-500 border-r-2 border-neutral-500 duration-300 ease-in-out`}>
 				{/* desktop pin */}
-				<div className="flex w-full">
+				<div className="flex w-full ml-[6px]">
 					<button onClick={() => setIsExpanded(!isExpanded)} className="p-2 rounded-md hover:bg-neutral-200 active:scale-95 transition cursor-pointer">
 						{isExpanded ? <PinOff strokeWidth={2.5} size={20} /> : <Pin strokeWidth={2.5} size={20} />}
 					</button>

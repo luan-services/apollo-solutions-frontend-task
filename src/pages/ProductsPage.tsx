@@ -14,12 +14,10 @@ import type { ProductFormData } from "../components/ui/ProductDialog";
 import type { Product, Category } from "@/types";
 
 const ProductsPage = () => {
-    // Stores the list of products from API
     const [products, setProducts] = useState<ProductFormData[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState(true);
     
-    // Filter State
     const [filterBrand, setFilterBrand] = useState("");
     const [filterCategory, setFilterCategory] = useState("all");
     const [minPrice, setMinPrice] = useState("");
@@ -44,7 +42,7 @@ const ProductsPage = () => {
 			setCategories(data);
 
         } catch (error) {
-            toast.error("Erro ao carregar produtos.");
+            toast.error("Erro ao carregar lista de categorias.");
             console.error(error);
         }
     }
@@ -154,7 +152,6 @@ const ProductsPage = () => {
     }, []);
 
     const handleSave = async (formData: ProductFormData) => {
-
         if (!formData.name || !formData.brand) {
             toast.warning("Preencha nome e marca.");
             return;
@@ -187,7 +184,9 @@ const ProductsPage = () => {
                 body: JSON.stringify(payload),
             });
 
-            if (!response.ok) throw new Error("Erro ao salvar");
+            if (!response.ok) {
+                throw new Error("Erro ao salvar");
+            }
 
             toast.success(isEditing ? "Produto atualizado." : "Produto criado.");
             fetchProducts(); 

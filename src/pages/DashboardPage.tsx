@@ -102,8 +102,8 @@ const DashboardPage = () => {
 					<CardTitle>Receita Mensal</CardTitle>
 				</CardHeader>
 				<CardContent className="pl-2">
-				<div className="h-76 w-full">
-					<ResponsiveContainer width="100%" height="100%">
+				<div className="h-76 w-full overflow-hidden">
+					<ResponsiveContainer width="100%" height="100%" debounce={150}>
 						<BarChart data={dashboardData.charts.monthly_revenue}>
 							<CartesianGrid strokeDasharray="3 3" className="stroke-neutral-200" />
 							<XAxis 
