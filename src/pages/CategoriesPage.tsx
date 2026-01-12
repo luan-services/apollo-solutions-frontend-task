@@ -160,7 +160,10 @@ const CategoriesPage = () => {
 				<CardHeader><CardTitle>Lista de Categorias</CardTitle></CardHeader>
 				<CardContent>
 					{loading ? 
-						<p>Carregando...</p> : (
+						<div className="flex w-full animate-pulse p-4 text-center justify-center text-lg">
+							Carregando dados...
+						</div>
+						 : (
 						<Table>
 							<TableHeader>
 								<TableRow>

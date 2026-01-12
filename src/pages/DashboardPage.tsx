@@ -38,7 +38,11 @@ const DashboardPage = () => {
 
 
 	if (loading) {
-		return <div>Carregando dashboard...</div>;
+		return (    
+			<div className="flex w-full animate-pulse p-4 text-center justify-center text-lg">
+                Carregando dashboard...
+            </div>
+		)
 	}
 
 	if (!dashboardData) {

@@ -234,7 +234,7 @@ const ProductsPage = () => {
             <Card>
                 <CardHeader><CardTitle>Lista de Produtos</CardTitle></CardHeader>
                 <CardContent>
-                    {/* Filters Section (Unchanged) */}
+                    
                     <div className="flex flex-wrap items-end gap-4 mb-6 p-4 bg-neutral-50 rounded-lg border">
                          <div className="flex flex-col w-full sm:w-auto gap-2">
                             <Label htmlFor="filter-brand">Marca</Label>
@@ -246,7 +246,7 @@ const ProductsPage = () => {
                                 className="w-full flex sm:w-66 bg-white"
                             />
                         </div>
-                        {/* ... (Keep your Min/Max price and Category filters here exactly as they were) ... */}
+                        
                         <div className="flex flex-col w-full sm:w-auto gap-2">
                             <Label htmlFor="min-price">Preço Mín.</Label>
                             <Input id="min-price" type="number" placeholder="Ex: 0.00" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="w-full sm:w-26 bg-white" />
@@ -280,7 +280,10 @@ const ProductsPage = () => {
                         </div>
                     </div>
 
-                    {loading ? <p>Carregando...</p> : (
+                    {loading ?                        
+                        <div className="flex w-full animate-pulse p-4 text-center justify-center text-lg">
+                            Carregando dados...
+                        </div> : (
                         <Table>
                             <TableHeader>
                                 <TableRow>
