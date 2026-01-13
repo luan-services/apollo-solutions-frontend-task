@@ -60,7 +60,7 @@ A interface é intuitiva e dividida em quatro seções principais acessíveis pe
 
 Tela inicial que apresenta uma visão geral do negócio, com gráficos e detalhes sobre as vendas.
 
-### 🛍️ Produtos, Categorias e Vendas
+### Produtos, Categorias e Vendas
 
 Telas dedicadas ao gerenciamento das tabelas (CRUD):
 
