@@ -1,73 +1,115 @@
-# React + TypeScript + Vite
+# Apollo Solutions Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interface visual desenvolvida com **React**, **Vite** e **TailwindCSS**. A aplicação consome a API RESTful para fornecer dashboards, relatórios e gerenciamento de dados.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* [React]
+* [Vite] - Build tool
+* [TypeScript] - Linguagem tipada.
+* [TailwindCSS v4] - Estilização.
+* [ShadcnUI] - Componentes.
+* [Recharts] - Biblioteca de gráficos para visualização de dados.
+* [Lucide React] - Ícones.
+* [Node/npm] 
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Inicializando o Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Pré-requisitos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Certifique-se de que seguiu o processo de inicialização do **Backend** da aplicação e que ele já esteja rodando. A porta padrão é `http://127.0.0.1:8000`, se optou por outra porta, será necessário atualizar dentro dos arquivos do frontend. Você também precisará do **Node.js** instalado.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 2. Clonar o Repositório
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/luan-services/apollo-solutions-frontend-task.git
+cd apollo-solutions-frontend-task
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Instalar Dependências
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Instale as bibliotecas necessárias listadas no `package.json`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+
 ```
+
+### 4. Rodar a Aplicação
+
+Para iniciar o servidor de desenvolvimento local:
+
+```bash
+npm run dev
+
+```
+
+O terminal exibirá o link de acesso local, geralmente: **http://localhost:5173/**
+
+---
+
+## Funcionalidades
+
+A interface é intuitiva e dividida em quatro seções principais acessíveis pela barra lateral.
+
+### Dashboard
+
+Tela inicial que apresenta uma visão geral do negócio, com gráficos e detalhes sobre as vendas.
+
+### 🛍️ Produtos, Categorias e Vendas
+
+Telas dedicadas ao gerenciamento das tabelas (CRUD):
+
+* **Listagem:** Tabelas com dados atualizados.
+* **Adicionar/Editar:** Formulários modais para inserir ou alterar registros.
+* **Excluir:** Remoção de registros com confirmação de segurança.
+* **Importação CSV:** Botão dedicado para fazer upload em massa de dados, integrado diretamente aos endpoints de importação da API.
+
+---
+
+## Estrutura do Projeto
+
+A organização das pastas segue o padrão de features e componentes:
+
+```
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── layout/
+│   │   └── Layout.tsx    # Navbar e estrutura da página.
+│   ├── lib/
+│   ├── pages/
+│   │   ├── DashboardPage.tsx
+│   │   ├── ProductsPage.tsx
+│   │   ├── CategoriesPage.tsx
+│   │   └── SalesPage.tsx
+│   ├── types.ts          # Definições de tipagem TypeScript do backend
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   ├── types.ts          # Definições de tipagem TypeScript do backend
+├── .gitignore
+├── components.json
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+```
+
+## Configuração de API
+
+Por padrão, o frontend está configurado para buscar dados em `http://127.0.0.1:8000`.
+Caso precise alterar a URL da API, verifique as chamadas `fetch` dentro da pasta `src/pages/`.
+
+---
