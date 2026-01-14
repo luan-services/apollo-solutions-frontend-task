@@ -183,7 +183,7 @@ const CategoriesPage = () => {
 								{categories.length === 0 ? (
                                     <TableRow>
                                         <TableCell colSpan={6} className="text-center h-24">
-                                            Nenhum produto encontrado.
+                                            Nenhuma categoria encontrada.
                                         </TableCell>
                                     </TableRow>
                                 ) : (
