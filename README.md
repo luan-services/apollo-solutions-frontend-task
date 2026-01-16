@@ -26,7 +26,7 @@ Certifique-se de que seguiu o processo de inicialização do **Backend** da apli
 
 ```bash
 git clone https://github.com/luan-services/apollo-solutions-frontend-task.git
-cd apollo-solutions-frontend-task
+cd interview-frontend-task
 
 ```
 
