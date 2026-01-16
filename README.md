@@ -1,4 +1,4 @@
-# Apollo Solutions Frontend
+# Interview Frontend 
 
 Interface visual desenvolvida com **React**, **Vite** e **TailwindCSS**. A aplicação consome a API RESTful para fornecer dashboards, relatórios e gerenciamento de dados.
 
