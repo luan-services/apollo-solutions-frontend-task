@@ -25,7 +25,7 @@ Certifique-se de que seguiu o processo de inicialização do **Backend** da apli
 ### 2. Clonar o Repositório
 
 ```bash
-git clone https://github.com/luan-services/apollo-solutions-frontend-task.git
+git clone https://github.com/luan-services/interview-frontend-task.git
 cd interview-frontend-task
 
 ```
